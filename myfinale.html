@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Football Fanbase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .card-cointainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+
+        }
+
+        .card {
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+            /* smoother */
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+
+        }
+
+        #chat-widget {
+
+            position: fixed;
+
+            bottom: 20px;
+
+            right: 20px;
+
+            width: 320px;
+
+            z-index: 1000;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+            display: flex;
+
+            flex-direction: column;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            background: white;
+
+        }
+
+
+        .chat-header {
+
+            background-color: #0d6efd;
+
+            color: white;
+
+            padding: 10px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+        .chat-body {
+
+            height: 250px;
+
+            overflow-y: auto;
+
+            padding: 10px;
+
+            background-color: #f8f9fa;
+
+            display: flex;
+            /* Flex to stack messages */
+
+            flex-direction: column;
+
+        }
+
+        .chat-message {
+
+            margin-bottom: 8px;
+
+            padding: 8px 12px;
+
+            border-radius: 15px;
+
+            max-width: 80%;
+
+            font-size: 0.9rem;
+
+            animation: fadeIn 0.3s ease;
+
+        }
+
+        .msg-bot {
+
+            background-color: #e9ecef;
+
+            color: black;
+
+            align-self: flex-start;
+
+            border-bottom-left-radius: 2px;
+
+        }
+
+
+        .msg-user {
+
+            background-color: #0d6efd;
+
+            color: white;
+
+            align-self: flex-end;
+
+            border-bottom-right-radius: 2px;
+
+        }
+
+        .chat-input-area {
+
+            padding: 10px;
+
+            border-top: 1px solid #ddd;
+
+            display: flex;
+
+            gap: 5px;
+
+            background: white;
+
+        }
+    </style>
+</head>
+
+
+<body>
+    <nav class="navbar bg-dark border-bottom border-body navbar-expand-lg bg-body-teritary fixed-top"
+        data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Fan base</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#poll">Bet Center</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#featured">Featured Players</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked"
+                                checked>
+                        </div> -->
+                        <div class="form-check form-switch pt-2">
+
+                            <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+
+                            <label class="form-check-label text-light" for="darkModeSwitch"><i
+                                    class="fas fa-moon"></i></label>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section id="hero" class="jumbotron p-5 text-center p-3 mb-2 bg-secondary text-white rounded-bottom-4">
+        <h1 class="display-4 fw-bold">Finale Time !!!</h1>
+        <p class="lead">Folks We are here It Is the season Finale WHO WILL WIN!</p>
+        <hr class="my-4">
+        <p>Watch the highlights, vote for the winner, and chat live with fans.</p>
+        <a class="btn btn-success btn-lg" href="#" role="button">Go to Bet Center</a>
+    </section><br><br><br>
+    <section id="poll" class="p-5 text-center">
+
+
+        <div>
+            <h3 class="fw-bold">WHO WILL WIN!</h3>
+            <div class="d-flex justify-content-around">
+                <div><label class="fw-bold text-danger fs-4" for="barca">Barcelona</label></div>
+                <div><label for="spacing"></label></div>
+                <div><label class="fw-bold text-warning fs-4" for="realmadrid">Real Madrid</label></div>
+            </div>
+            <div class="d-flex justify-content-around">
+                <div><button type="button" class="btn btn-outline-danger fw-bold">Vote Barcelona</button></div>
+                <div class="fw-bold fs-3">VS</div>
+                <div><button type="button" class="btn btn-outline-warning fw-bold">Vote Real Madrid</button></div>
+            </div><br>
+
+            <div class="progress" role="progressbar" aria-label="barcelona" aria-valuenow="50" aria-valuemin="0"
+                aria-valuemax="100">
+                <div class="progress-bar text-bg-danger fw-bold" style="width: 50%">50%</div>
+            </div><br><br>
+
+        </div>
+
+
+    </section>
+
+    <section id="featured" class="p-5 text-center ">
+        <h3 class="fw-bold">Season Players</h3>
+        <br><br>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col border">
+                    <div id="container1" class="d-flex justify-content-around">
+                        <div class="card col-md-3 h-100 shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+                            style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <img src="OIP.webp" class="card-img-top" alt="..." id="olise" style="height: 380px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Michael Olise</h5>
+                                <p class="card-text">FC Bayern Munich</p>
+                                <span class="badge text-bg-dark">Winger</span>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Michael Olise</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="olies.jpg" alt="" style="width: 350px ; height: 350px;">
+                                        <p><b>Team</b>: FC Bayern Munich </p>
+                                        <p><b>Position</b>: Winger</p>
+                                        <p><b>Season Rating</b>: <span class="badge text-bg-dark">82</span></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success"
+                                            data-bs-dismiss="modal">Close</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col border">
+                        <div id="countainer1" class="card h-100 shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+                            style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                            <img src="download (1).png " class="card-img-top" alt="..." style=" height: 380px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Kylian Mbappé</h5>
+                                <p class="card-text">Real Madrid</p>
+                                <span class="badge text-bg-dark">Forward</span>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel1">Kylian Mbappé</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="kylian.png" alt="" style="width: 350px ; height: 350px;">
+                                        <p><b>Team</b>: Real Madrid </p>
+                                        <p><b>Position</b>: Forward</p>
+                                        <p><b>Season Rating</b>: 91</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col border">
+                        <div class="card h-100 shadow-lg p-3 mb-5 bg-body-tertiary rounded " style="width: 18rem;"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                            <img src="erbrha.png" class="card-img-top" alt="..." style=" height: 380px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Erling Haaland</h5>
+                                <p class="card-text">Manchester City</p>
+                                <span class="badge text-bg-dark">Forward</span>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel2">Erling Haaland</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="håland.jpg" alt="" style="width: 350px ; height: 350px;">
+                                        <p><b>Team</b>: Manchester City </p>
+                                        <p><b>Position</b>: Forward</p>
+                                        <p><b>Season Rating</b>: 90</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col border">
+                        <div class="card h-100 shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                            <img src="download.png" class="card-img-top" alt="..." style=" height: 380px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Vitinha</h5>
+                                <p class="card-text">Paris Saint-Germain FC</p>
+                                <span class="badge text-bg-dark">Midfielder</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel3">Vitinha</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="vithinaia.jfif" alt="" style="width: 350px ; height: 350px;">
+                                    <p><b>Team</b>: Paris Saint-Germain FC </p>
+                                    <p><b>Position</b>: Midfielder</p>
+                                    <p><b>Season Rating</b>: 85</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="chat-widget">
+        <div class="chat-header" onclick="toggleChat()"><span><i class="fas fa-comments me-2"></i>Live Fan Chat <span
+                    class="badge bg-danger ms-1">LIVE</span></span>
+
+            <i class="fas fa-chevron-down" id="chat-icon"></i>
+        </div>
+        <div id="chat-content-wrapper">
+            <div id="chat-box" class="chat-body">
+                <div class="chat-message msg-bot">
+                    welcome
+                </div>
+            </div>
+            <div class="chat-input-area"><input type="text" id="chat-input" class="form-control form-control-sm"
+                    placeholder="Say something...">
+
+                <button class="btn btn-primary btn-sm" onclick="sendMessage()"><i
+                        class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+
+        const chatBox = document.getElementById("chat-box")
+        const chatInput = document.getElementById("chat-input")
+        const botPhrases = [
+
+            "What a game!", "Ref is blind 😡", "Hala Madrid!",
+
+            "Barca Best Lineup?", "Can't believe that miss...",
+
+            "Lamine Is MVP for sure", "Visca barça", "Ref!",
+            "Who is Ready fo Elclassico!!!", "Hotdogs at diel pieros only 2$"
+            , "El Clásico is starting — hope Barcelona brought more than just possession today",
+            "Real Madrid’s trophy cabinet is getting full… should we lend Barça a shelf?", "Barcelona passing the ball around like they’re allergic to shooting.", "Madrid’s counterattack is faster than Barça’s Wi‑Fi.", "Barça fans say ‘trust the process’ — Madrid fans say ‘trust the trophies", "Don’t worry Barça, Courtois will let you take a shot eventually", "Another corner for Barcelona… and another reminder they still can’t score from one.", "Madrid plays Champions League football. Barcelona plays… well, something.", "Madrid’s defense looks like it’s sponsored by Swiss cheese today.", "Vinícius is fast, but not fast enough to escape Araújo.", "Madrid fans celebrating early again — classic.", "Why are we passing backwards? The goal is the other way!",
+            "If we shoot any softer, the ball will ask for a pillow!",
+            "Is the referee watching the same match or a documentary!",
+            "Someone tell the midfield this isn’t hide‑and‑seek!",
+            "We’ve had more mistakes than shots — impressive in the wrong way!", "Barcelona passing in circles again — someone tell them the goal is forward!",
+            "All that possession and still nothing dangerous!",
+            "Barça’s defense opens up like automatic doors!",
+            "Another sideways pass — shocking creativity!",
+            "Twenty passes just to lose the ball, classic Barcelona!",
+            "Barcelona’s attack is moving slower than a traffic jam!",
+            "How do you dominate the ball and still do nothing with it!",
+            "That shot from Barça needed a GPS!",
+            "Barcelona’s midfield is disappearing when it matters!",
+            "Another wasted attack — unbelievable!",
+            "Barça’s final third decisions are pure chaos!",
+            "Barcelona’s pressing is softer than a pillow!", "Madrid’s defense is giving out free space like it’s on sale!",
+            "Another counterattack wasted — shocking!",
+            "Madrid’s midfield is vanishing under pressure!",
+            "That clearance had the accuracy of a broken compass!",
+            "Madrid’s attack looks disconnected again!",
+            "How does Madrid lose the ball that easily!",
+            "Another long ball to nowhere — classic panic mode!",
+            "Madrid’s buildup is moving like slow motion!",
+            "That shot from Madrid needed a map!",
+            "Real Madrid’s marking is completely optional today!",
+            "Another mistake at the back — unbelievable!",
+            "Madrid’s passing rhythm is all over the place!", "Why is the ref still in bed instead of on the pitch!",
+            "Did the defense forget to clock in today!",
+            "Who unplugged the midfield’s brain!",
+            "That shot was so bad it should come with an apology!",
+            "Is the goalkeeper on airplane mode!",
+            "Someone reboot the entire team, they’re glitching!",
+            "Why is the ball allergic to going forward!",
+            "Did the ref leave his glasses in the locker room again!",
+            "This defense has more holes than a fishing net!",
+            "Who taught them to pass — a malfunctioning robot!",
+            "That clearance was so random it needs a translator!",
+            "Is the attack running on 2% battery!",
+            "Why is the ref lagging like he’s on dial‑up!",
+            "Someone call tech support, this team is frozen!",
+            "That shot was so off‑target it’s orbiting the moon!",
+            "Is the midfield playing hide‑and‑seek again!",
+            "Why is the ref buffering instead of refereeing!",
+            "That pass was so bad it should be considered a turnover tax!",
+            "Is the defense practicing social distancing from the ball!",
+            "Who installed panic mode in the back line!", "Barcelona is probably in Las Vegas gambling for transfer money 😂!",
+            "Barça’s budget is so low even Monopoly money would help 😂!",
+            "Barcelona scouting players like they’re browsing the clearance section 😂!",
+            "Barça’s wallet is emptier than their defense right now 😂!",
+            "Barcelona negotiating transfers like 'can we pay in installments of hope and dreams' 😂!",
+            "Barça’s financial plan looks like a math problem nobody can solve 😂!",
+            "Barcelona checking under the couch cushions for transfer funds 😂!",
+            "Barça’s accountant is sweating harder than their defense 😂!", "Madrid’s defense is so open it should start charging rent 😂!",
+            "Real Madrid’s backline is playing peek‑a‑boo with the ball 😂!",
+            "Madrid’s midfield is buffering like bad Wi‑Fi 😂!",
+            "Real Madrid clearing the ball like they’re allergic to accuracy 😂!",
+            "Madrid’s attack is moving like it’s stuck in traffic 😂!",
+            "Real Madrid’s marking is so loose it needs duct tape 😂!",
+            "Madrid’s long balls are so random they need a GPS 😂!", "Barcelona is so broke even the vending machines feel bad for them 😂!",
+            "Barça so poor the beggars thought they were leftover donations 😂!",
+            "Barcelona checking sofa cushions for transfer funds again 😂!",
+            "Barça negotiating transfers like 'can we pay in exposure' 😂!",
+            "Barcelona’s budget is so low even Monopoly money would help 😂!",
+            "Barça scouting players at discount stores like it's Black Friday 😂!",
+            "Barcelona’s accountant is sweating harder than their defense 😂!",
+            "Barça’s financial plan looks like a puzzle missing half the pieces 😂!",
+            "Barcelona’s wallet is emptier than their trophy parade route 😂!",
+            "Barça trying to sign players with coupons and good vibes 😂!", "Real Madrid’s defense is so open it should start charging rent 😂!",
+            "Madrid’s backline is playing peek‑a‑boo with the ball 😂!",
+            "Real Madrid clearing the ball like they’re trying to hit a satellite 😂!",
+            "Madrid’s midfield is buffering like bad Wi‑Fi again 😂!",
+            "Real Madrid’s marking is so loose it needs duct tape 😂!",
+            "Madrid’s attack is moving like it’s stuck in traffic 😂!",
+            "Real Madrid’s long balls are so lost they need a GPS 😂!",
+            "Madrid’s defense is social distancing from the ball 😂!",
+            "Real Madrid’s passing accuracy is sponsored by chaos 😂!",
+            "Madrid’s counterattack is loading… still loading… still loading 😂!", "Barcelona’s defense is so lost it’s asking the crowd for directions 😂!", "Barça’s backline is opening up like automatic supermarket doors 😂!", "Barcelona’s midfield is disappearing like it got abducted mid‑match 😂!", "Barça’s attack is so slow even the ball is filing a complaint 😂!", "Barcelona passing for 20 minutes just to donate the ball to Madrid 😂!", "Barça’s defense is so confused they’re marking the grass instead of players 😂!", "Barcelona’s goalkeeper is moving like he’s stuck in a loading screen 😂!", "Barça’s counterattack is slower than a grandma on a bicycle 😂!", "Barcelona’s pressing is softer than a marshmallow in the sun 😂!", "Barça’s clearances are so random they need subtitles 😂!", "Barcelona’s defenders are social distancing from the ball again 😂!", "Barça’s tactics look like they were drawn by a toddler with crayons 😂!", "Barcelona’s backline is so open it should start charging rent 😂!", "Barça’s passing accuracy is sponsored by pure chaos 😂!", "Barcelona’s defense is so lost it’s asking the crowd for directions 😂!", "Barça’s backline is opening up like automatic supermarket doors 😂!", "Barcelona’s midfield is disappearing like it got abducted mid‑match 😂!", "Barça’s attack is so slow even the ball is filing a complaint 😂!", "Barcelona passing for 20 minutes just to donate the ball to Madrid 😂!", "Barça’s defense is so confused they’re marking the grass instead of players 😂!", "Barcelona’s goalkeeper is moving like he’s stuck in a loading screen 😂!", "Barça’s counterattack is slower than a grandma on a bicycle 😂!", "Barcelona’s pressing is softer than a marshmallow in the sun 😂!", "Barça’s clearances are so random they need subtitles 😂!", "Barcelona’s defenders are social distancing from the ball again 😂!", "Barça’s tactics look like they were drawn by a toddler with crayons 😂!", "Barcelona’s backline is so open it should start charging rent 😂!", "Barça’s passing accuracy is sponsored by pure chaos 😂!", "Real Madrid’s defense is so open it has its own welcome mat 😂!",
+            "Madrid’s backline is playing hide‑and‑seek with the striker and losing badly 😂!",
+            "Real Madrid’s midfield is disappearing like a magic trick gone wrong 😂!",
+            "Madrid’s attack is so slow even the ref outruns them 😂!",
+            "Real Madrid’s clearances are so wild NASA is tracking them 😂!",
+            "Madrid’s defenders are marking shadows instead of players 😂!",
+            "Real Madrid’s goalkeeper is lagging like he’s on hotel Wi‑Fi 😂!",
+            "Madrid’s passing is so random it looks like a glitch in the matrix 😂!",
+            "Real Madrid’s counterattack loads slower than a 1990s computer 😂!",
+            "Madrid’s defense is so confused they’re tackling the air for practice 😂!",
+            "Real Madrid’s long balls are so lost they need a missing‑person poster 😂!",
+            "Madrid’s tactics look like they were drawn during a rollercoaster ride 😂!",
+            "Real Madrid’s backline is so broken it needs emotional support 😂!",
+            "Madrid’s marking is so loose it needs duct tape and prayers 😂!"
+
+        ];
+        function addMeassage(text, type) {
+            const div = document.createElement("div")
+            div.className = `chat-message ${type}`;
+
+            div.innerText = text;
+
+            chatBox.appendChild(div);
+
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function sendMessage() {
+            const text = chatInput.value;
+
+            if (text.trim() === "") return;
+
+            addMessage(text, "msg-user");
+
+            chatInput.value = "";
+        }
+
+        chatInput.addEventListener('keypress', (e) => {
+
+            if (e.key === 'Enter') sendMessage();
+
+        });
+
+        function startBot() {
+
+            setInterval(() => {
+
+                const randomTime = Math.random() * 4000 + 2000;
+
+                setTimeout(() => {
+
+                    const randomPhrase = botPhrases[Math.floor(Math.random() * botPhrases.length)];
+
+                    addMessage(randomPhrase, "msg-bot");
+
+                }, randomTime);
+
+            }, 5000);
+
+        }
+
+        let chatOpen = true
+        const icon = document.getElementById('chat-icon');
+        function toggleChat() {
+            const wrapper = document.getElementById("chat-content-wrapper")
+            if (chatOpen) {
+                wrapper.style.display = "none"
+                icon.className = "fas fa-chevron-up";
+            }
+
+            else {
+                wrapper.style.display = "block"
+                icon.className = "fas fa-chevron-down";
+            }
+
+            chatOpen = !chatOpen
+
+        }
+
+        startBot()    
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

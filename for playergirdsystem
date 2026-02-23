@@ -1,0 +1,124 @@
+<h3 class="fw-bold">Season Players</h3>
+        <br><br>
+        <div id="container1" class="d-flex justify-content-around">
+            <div class="card col-md-3 h-100 shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;"
+                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <img src="OIP.webp" class="card-img-top" alt="..." id="olise" style="height: 380px;">
+                <div class="card-body">
+                    <h5 class="card-title">Michael Olise</h5>
+                    <p class="card-text">FC Bayern Munich</p>
+                    <span class="badge text-bg-dark">Winger</span>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"              
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Michael Olise</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="olies.jpg" alt="" style="width: 350px ; height: 350px;">
+                            <p><b>Team</b>: FC Bayern Munich </p>
+                            <p><b>Position</b>: Winger</p>
+                            <p><b>Season Rating</b>: 82</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="countainer1" class="card h-100 shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;"
+                data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                <img src="download (1).png " class="card-img-top" alt="..." style=" height: 380px;">
+                <div class="card-body">
+                    <h5 class="card-title">Kylian Mbappé</h5>
+                    <p class="card-text">Real Madrid</p>
+                    <span class="badge text-bg-dark">Forward</span>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel1">Kylian Mbappé</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="kylian.png" alt="" style="width: 350px ; height: 350px;">
+                            <p><b>Team</b>: Real Madrid </p>
+                            <p><b>Position</b>: Forward</p>
+                            <p><b>Season Rating</b>: 91</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card h-100 shadow-lg p-3 mb-5 bg-body-tertiary rounded " style="width: 18rem;"
+                data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                <img src="erbrha.png" class="card-img-top" alt="..." style=" height: 380px;">
+                <div class="card-body">
+                    <h5 class="card-title">Erling Haaland</h5>
+                    <p class="card-text">Manchester City</p>
+                    <span class="badge text-bg-dark">Forward</span>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel2">Erling Haaland</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="håland.jpg" alt="" style="width: 350px ; height: 350px;">
+                            <p><b>Team</b>: Manchester City </p>
+                            <p><b>Position</b>: Forward</p>
+                            <p><b>Season Rating</b>: 90</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card h-100 shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;"
+                data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                <img src="download.png" class="card-img-top" alt="..." style=" height: 380px;">
+                <div class="card-body">
+                    <h5 class="card-title">Vitinha</h5>
+                    <p class="card-text">Paris Saint-Germain FC</p>
+                    <span class="badge text-bg-dark">Midfielder</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel3">Vitinha</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="vithinaia.jfif" alt="" style="width: 350px ; height: 350px;">
+                        <p><b>Team</b>: Paris Saint-Germain FC </p>
+                        <p><b>Position</b>: Midfielder</p>
+                        <p><b>Season Rating</b>: 85</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
